@@ -3,67 +3,7 @@ import discord
 from discord.ext import commands
 
 client = discord.Client()
-TOKEN_HERE = ' '
-
-
-class JapaneseHelpCommand(commands.DefaultHelpCommand):
-    def __init__(self):
-        super().__init__()
-        self.commands_heading = "コマンド:"
-        self.no_category = "その他"
-        self.command_attrs["help"] = "コマンド一覧と簡単な説明を表示"
-
-    def get_ending_note(self):
-        return (f"各コマンドの説明: $help <コマンド名>\n"
-                f"各カテゴリの説明: $help <カテゴリ名>\n")
-
-
-bot = commands.Bot(command_prefix='$', help_command=JapaneseHelpCommand())
-
-
-@bot.command(name="こたつ")
-async def checkkotatsu(self, ctx, arg):
-    """お題を入力すると単語登録が返ってくるよ"""
-    if arg is None:
-        msg = "なにか入力してね。"
-    else:
-        for i in odailist:
-            if arg == odailist[i][0] or arg == odailist[i][1]:
-                kotatsu = odailist[i][2]
-                msg = f"{arg}は{kotatsu}って書けばいいよ"
-                break
-        else:
-            msg = "そんなお題ないよｗ"
-    await ctx.send(f"{ctx.author.name}さん、{msg}")
-
-
-@bot.command(name="おだい")
-async def checkodai(self, ctx, arg):
-    """お題または別回答入力すると存在チェックできるよ"""
-    if arg is None:
-        msg = "なんて？"
-    else:
-        words = []
-        for i, odai in enumerate(odailist):
-            if odailist[i][3] == "両方":
-                kyo = "協力、非協力"
-            else:
-                kyo = odailist[i][3]
-
-            if arg == odailist[i][0]:
-                word_msg = f"{arg}は{kyo}お題だよ。"
-                words.append(word_msg)
-            elif arg == odailist[i][1]:
-                word_msg = f"{arg}は{kyo}お題「{odailist[i][0]}」の別回答だよ。"
-                words.append(word_msg)
-
-        if len(words) > 1:
-            msg = '\n'.join(words)
-        else:
-            msg = "ってお題はないよｗ（別回答もないかな）"
-
-    await ctx.send(f"{ctx.author.name}さん、\n{msg}")
-
+TOKEN_HERE = ''
 odailist = [
     ['あい', '', 'あい', '非協力'],
     ['あいしゃどう', 'あいらいん', 'あいｒ', '非協力'],
@@ -1231,7 +1171,76 @@ odailist = [
     ['よんこままんが', 'よんこま', 'よ', '協力'],
     ['ろみおとじゅりえっと', '', 'ｒｍ', '協力'],
 ]
-"""bot.add_cog(Search(bot))"""
+
+
+class JapaneseHelpCommand(commands.DefaultHelpCommand):
+    def __init__(self):
+        super().__init__()
+        self.commands_heading = "コマンド:"
+        self.no_category = "その他"
+        self.command_attrs["help"] = "コマンド一覧と簡単な説明を表示"
+
+    def get_ending_note(self):
+        return (f"各コマンドの説明: $help <コマンド名>\n"
+                f"各カテゴリの説明: $help <カテゴリ名>\n")
+
+
+bot = commands.Bot(command_prefix='$', help_command=JapaneseHelpCommand())
+
+
+@bot.command(name="kotatsu")
+async def checkkotatsu(ctx, arg):
+    """お題を入力すると単語登録が返ってくるよ"""
+    if arg is None:
+        msg = "なにか入力してね。"
+    else:
+        for i, odai in enumerate(odailist):
+            if arg == odailist[i][0] or arg == odailist[i][1]:
+                kotatsu = odailist[i][2]
+                msg = f"{arg}は{kotatsu}って書けばいいよ"
+                break
+        else:
+            msg = "そんなお題ないよｗ"
+    await ctx.send(f"{ctx.author.display_name}さん、{msg}")
+
+
+@bot.command(name="test")
+async def odaitest(ctx, arg):
+    await ctx.send(arg)
+
+@bot.command(name="odai")
+async def checkodai(ctx, arg):
+    """お題または別回答入力すると存在チェックできるよ"""
+    if arg is None:
+        msg = "なんて？"
+    else:
+        words = []
+        for i, odai in enumerate(odailist):
+            if odailist[i][3] == "両方":
+                kyo = "協力、非協力"
+            else:
+                kyo = odailist[i][3]
+
+            if arg == odailist[i][0]:
+                print(odailist[i][0])
+                word_msg = f"{arg}は{kyo}お題だよ。"
+                words.append(word_msg)
+            elif arg == odailist[i][1]:
+                word_msg = f"{arg}は{kyo}お題「{odailist[i][0]}」の別回答だよ。"
+                words.append(word_msg)
+
+        print(len(words))
+        if len(words) > 0:
+            msg = '\n'.join(words)
+        else:
+            msg = f"{arg}ってお題はないよｗ（別回答もないかな）"
+
+    await ctx.send(f"{ctx.author.display_name}さん、\n{msg}")
 
 # 取得したトークンを「TOKEN_HERE」の部分に記入
-bot.run('TOKEN_HERE')
+bot.run(TOKEN_HERE)
+
+
+"""bot.add_cog(Search(bot))"""
+
+
