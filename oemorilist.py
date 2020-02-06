@@ -27,24 +27,3 @@ with open('easyodailist_ryo.csv', 'r', encoding='shift_jis') as g:
         print(f"\t{a},")
     print("]")
 
-
-"""
-    for bb in reader2:
-        for j, yy in enumerate(test):
-            if bb[0] == yy[j]:
-                pass
-            else:
-                print(bb[0])
-"""
-
-"""    
-    for rowfin in tmp_list:
-        print(rowfin)
-
-print(counter)
-
-for aaa in test:
-    print(aaa)
-
-"""
-
