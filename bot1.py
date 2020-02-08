@@ -1214,7 +1214,7 @@ class Search(commands.Cog, name='検索'):
                     word_msg = f"{arg}は{kyo}お題「{odailist[i][0]}」の別回答だよ。"
                     words.append(word_msg)
 
-            print(len(words))
+            # print(len(words))
             if len(words) > 0:
                 msg = '\n'.join(words)
             else:
