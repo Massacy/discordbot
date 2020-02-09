@@ -1,9 +1,10 @@
 # coding: utf-8
 import discord
 from discord.ext import commands
+import os
 
 client = discord.Client()
-TOKEN_HERE = ''
+ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
 odailist = [
     ['あい', '', 'あい', '非協力'],
     ['あいしゃどう', 'あいらいん', 'あいｒ', '非協力'],
@@ -1236,8 +1237,8 @@ class JapaneseHelpCommand(commands.DefaultHelpCommand):
 
 bot = commands.Bot(command_prefix='$', help_command=JapaneseHelpCommand())
 bot.add_cog(Search(bot=bot))
-# 取得したトークンを「TOKEN_HERE」の部分に記入
-bot.run(TOKEN_HERE)
+# 取得したトークンを「ACCESS_TOKEN」の部分に記入
+bot.run(ACCESS_TOKEN)
 
 
 
