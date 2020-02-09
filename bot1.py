@@ -1178,7 +1178,7 @@ class Search(commands.Cog, name='検索'):
         super().__init__()
         self.bot = bot
 
-    @commands.command(name="kotatsu")
+    @commands.command(name="k")
     async def checkkotatsu(self, ctx, arg=None):
         """お題を入力すると単語登録が返ってくるよ"""
         if arg is None:
@@ -1193,7 +1193,7 @@ class Search(commands.Cog, name='検索'):
                 msg = "そんなお題ないよｗ"
         await ctx.send(f"{ctx.author.display_name}さん、{msg}")
 
-    @commands.command(name="odai")
+    @commands.command(name="o")
     async def checkodai(self, ctx, arg=None):
         """お題または別回答入力すると存在チェックできるよ"""
         if arg is None:
