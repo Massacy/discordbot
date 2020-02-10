@@ -1219,7 +1219,7 @@ class Search(commands.Cog, name='検索'):
             if len(words) > 0:
                 msg = '\n'.join(words)
             else:
-                msg = f"{arg}ってお題はないよｗ（別回答もないかな）"
+                msg = f"{arg}ってお題はないよｗ（もしあるなら報告してね）"
 
         await ctx.send(f"{ctx.author.display_name}さん、\n{msg}")
 
