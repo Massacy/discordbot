@@ -1,6 +1,6 @@
 import csv
 
-with open('easyodailist3.csv', 'r', encoding='shift_jis') as f:
+with open('dataprepa/odailist4.csv', 'r', encoding='shift_jis') as f:
     reader = csv.reader(f)
     tmp_list = []
     for row in reader:
@@ -8,7 +8,7 @@ with open('easyodailist3.csv', 'r', encoding='shift_jis') as f:
         # print(l)
         tmp_list.append(col)
 
-with open('easyodailist_ryo.csv', 'r', encoding='shift_jis') as g:
+with open('dataprepa/easyodailist_ryo.csv', 'r', encoding='shift_jis') as g:
     reader2 = csv.reader(g)
     tmp_list2 = []
     test = []
