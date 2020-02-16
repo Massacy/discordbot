@@ -1238,7 +1238,7 @@ class Search(commands.Cog, name='検索'):
         await ctx.send(f"{ctx.author.display_name}さん、\n{msg}")
 
     @client.event
-    async def on_message(message):
+    async def on_message(self, message):
         """なにか画像があれば出すよ"""
         # メッセージ送信者がBotだった場合は無視する
         if message.author.bot:
