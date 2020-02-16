@@ -1251,6 +1251,8 @@ class Search(commands.Cog, name='検索'):
             await message.channel.send(file=discord.File('./images/natsuyasumi.jpg'))
         if message.content == "よぞら":
             await message.channel.send(file=discord.File('./images/yozora_hasuki.png'))
+        if message.content == "みぎー":
+            await message.channel.send(file=discord.File('./images/miggy.png'))
         else:
             return
 
