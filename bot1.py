@@ -5,6 +5,7 @@ import os
 
 client = discord.Client()
 ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
+
 odailist = [
     ['あい', '', 'あい', '非協力'],
     ['あいしゃどう', 'あいらいん', 'あいｒ', '非協力'],
@@ -1237,14 +1238,21 @@ class Search(commands.Cog, name='検索'):
 
         await ctx.send(f"{ctx.author.display_name}さん、\n{msg}")
 
-    @client.event
+    @commands.Cog.listener()
     async def on_message(self, message):
         """なにか画像があれば出すよ"""
-        # メッセージ送信者がBotだった場合は無視する
-        if message.author.bot:
-            return
         if message.content == "ねろ":
-            await message.channel.send(file=discord.File('.\\dataprepa\\image0.jpg'))
+            await message.channel.send(file=discord.File('./images/nerori.jpg'))
+        if message.content == "はすき":
+            await message.channel.send(file=discord.File('./images/hasuki.png'))
+        if message.content == "さくら":
+            await message.channel.send(file=discord.File('./images/sakura.png'))
+        if message.content == "なつやすみ":
+            await message.channel.send(file=discord.File('./images/natsuyasumi.jpg'))
+        if message.content == "よぞら":
+            await message.channel.send(file=discord.File('./images/yozora_hasuki.png'))
+        else:
+            return
 
 
 class JapaneseHelpCommand(commands.DefaultHelpCommand):
