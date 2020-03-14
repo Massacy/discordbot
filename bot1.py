@@ -1244,7 +1244,7 @@ class Search(commands.Cog, name='検索'):
         if message.content == "ねろ":
             await message.channel.send(file=discord.File('./images/nerori.jpg'))
         if message.content == "はすき":
-            await message.channel.send(file=discord.File('./images/hasuki.png'))
+            await message.channel.send(file=discord.File('./images/shibue_hasuki.png'))
         if message.content == "さくら":
             await message.channel.send(file=discord.File('./images/sakura.png'))
         if message.content == "なつやすみ":
