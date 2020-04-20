@@ -1241,7 +1241,7 @@ class Search(commands.Cog, name='検索'):
     @commands.Cog.listener()
     async def on_message(self, message):
         """なにか画像があれば出すよ"""
-        if message.content == "ねろ":
+        if message.content == "ねろり":
             await message.channel.send(file=discord.File('./images/nerori.jpg'))
         if message.content == "はすき":
             await message.channel.send(file=discord.File('./images/shibue_hasuki.png'))
@@ -1253,6 +1253,8 @@ class Search(commands.Cog, name='検索'):
             await message.channel.send(file=discord.File('./images/yozora_hasuki.png'))
         if message.content == "みぎー":
             await message.channel.send(file=discord.File('./images/miggy.png'))
+        if message.content == "げんきになってね":
+            await message.channel.send(file=discord.File('./images/genkininattene.png'))
         else:
             return
 
