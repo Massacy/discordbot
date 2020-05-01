@@ -1255,6 +1255,8 @@ class Search(commands.Cog, name='検索'):
             await message.channel.send(file=discord.File('./images/miggy.png'))
         if message.content == "げんきになってね":
             await message.channel.send(file=discord.File('./images/genkininattene.png'))
+        if message.content == "↓":
+            await message.channel.send(file=discord.File('./images/toomotteitanoka.png'))
         else:
             return
 
